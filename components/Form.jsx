@@ -8,13 +8,24 @@ class Form extends React.Component {
         super(props);
     }
 
+    click() {
+        console.log(document.querySelector("input[name='1']:checked").value);
+    }
+
     render() {
-        return this.props.schema.map((el, i) => 
+        let formGroups = this.props.schema.map((el, i) => 
             <FormElement key={i}
                          index={i}
                          type={el.type}
                          prompt={el.prompt}
                          options={el.options} />
+        );
+
+        return (
+            <div>
+                {formGroups}
+                <button id="submit" onClick={this.click}>Submit</button>
+            </div>
         );
     }
 };

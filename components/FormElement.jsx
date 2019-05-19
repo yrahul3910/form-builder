@@ -7,19 +7,19 @@ class FormElement extends React.Component {
         let innerElement;
 
         if (this.props.type == "radio" || this.props.type == "checkbox")
-            innerElement = this.props.options.map((i, opt) =>
-                <div>
-                    <input key={i} type={this.props.type} name={this.props.index}
+            innerElement = this.props.options.map((opt, i) =>
+                <div key={i}>
+                    <input type={this.props.type} name={this.props.index}
                            value={opt} 
                            id={this.props.index.toString() + "_" + i.toString()} />
-                    <label for={this.props.index.toString() + "_" + i.toString()}>
+                    <label htmlFor={this.props.index.toString() + "_" + i.toString()}>
                         {opt}
                     </label>
                 </div>
             );
         else if (this.props.type == "text")
             innerElement = (
-                <textarea id={this.props.index}></textarea>
+                <input type="text" id={this.props.index} />
             );
                 
         return (

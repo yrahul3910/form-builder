@@ -10,7 +10,6 @@ export default class App extends React.Component {
     async componentDidMount() {
         let response = await fetch("/api/schema");
         let schema = await response.json();
-        console.log(schema);
 
         this.setState({ schema: schema.schema, loaded: true });
     }
